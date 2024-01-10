@@ -1,0 +1,67 @@
+-- iniciais --
+composer create-project --prefer-dist laravel/laravel blogV2
+php artisan make:model Post -m
+php artisan make:model Category -m
+php artisan serve
+php artisan migrate
+php artisan migrate:refresh
+php artisan make:seed PostTableSeeder
+php artisan make:seed UsersTableSeeder
+php artisan make:seed CategoriesTableSeeder
+php artisan tinker{
+$faker = Faker\Factory::create()
+ $faker->word()
+  $faker->sentence
+ $faker->sentences
+$faker->paragraph
+}
+php artisan db:seed
+php artisan make:migration alter_posts_add_published_at_column --table=posts
+php artisan make:migration alter_posts_add_category_id_column --table=posts
+php artisan make:migration alter_posts_add_view_count_column --table=posts
+php artisan make:migration add_soft_deletion_to_posts_table --table=posts
+
+php artisan make:migration alter_users_add_slug_column --table=users
+php artisan make:migration alter_users_add_bio_column --table=users
+php artisan make:controller Backend/BlogController --resource
+php artisan make:controller Backend/CategoriesController --resource
+
+php artisan make:request PostRequest
+php artisan make:request CategoryDestroyRequest
+php artisan make:request UserStoreRequest
+php artisan make:request UserUpdateRequest
+php artisan make:request UserDestroyRequest
+
+php artisan route:list
+php artisan make:request PostRequest
+
+php artisan laratrus:migration
+php artisan make:model Role
+php artisan make:model Permission
+php artisan make:seeder RolesTableSeeder
+php artisan make:seeder PermissionsTableSeeder
+php artisan cache:clear
+
+php artisan make:middleware CheckPermissionsMiddleware
+
+php artisan make:model Tag -m
+php artisan db:seed --class=TagsTableSeeder
+
+php artisan make:model Comment -m
+php artisan make:seeder CommentsTableSeeder
+php artisan make:controller CommentsController
+php artisan make:request CommentStoreRequest
+
+php artisan migrate:fresh --seed #apagar tabelas, criar as tabelas e semear dados
+
+
+
+
+
+
+
+
+
+/*DB::getQueryLog()*/
+php artisan vendor:publish
+

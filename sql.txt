@@ -1,0 +1,1 @@
+SELECT * FROM `singers`,`instrumentos`,`categoria_instrumentos`,`grupo_corals` WHERE singers.idGrupo = grupo_corals.id AND instrumentos.idInstrumento = categoria_instrumentos.idInstrumento AND singers.categoriaInstrumento = categoria_instrumentos.idCategoriaInstrumento AND singers.idGrupo=2;
